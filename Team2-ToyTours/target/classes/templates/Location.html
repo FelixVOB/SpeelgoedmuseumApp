@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Locatie Pagina</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/style.css(id=${id})}" href="/style.css"/>
+    <style th:inline="css">
+        body {
+            background-image: url(/*[[${'/images/' + locatie.getAchtergrondFotoadres()}]]*/);
+             background-size: cover;
+            background-position: center center;
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="row justify-content-center">
+        <h1 th:text="${locatie.getNaam()}" class="home-heading mb-5"></h1>
+        <div class="col-md-12  text-center">
+            <img th:src="@{${'/images/' + locatie.getKarakterFotoadres()}}" alt="character" class="character img-fluid mt-3" />
+            <textarea th:text="${locatie.getTekstje()}" class="form-control home-textarea mb-4" rows="3" readonly style="resize: none;"></textarea>
+            <button class="btn btn-success home-button btn-lg mb-4">Ga Verder</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
